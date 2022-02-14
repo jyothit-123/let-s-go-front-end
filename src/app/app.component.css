@@ -1,0 +1,28 @@
+nav{
+    background-image: linear-gradient(to right,rgb(2, 2, 70) 0%,rgb(43, 40, 40) 50%,rgb(3, 3, 58) 100%);
+}
+.logo{
+    height: 40px;
+    width: 80px;
+}
+ul li{
+    padding-right: 10px;
+}
+ul li a{
+    color: #fff;
+    transition-timing-function: ease-in-out;
+    border-radius: 8px;
+}
+ul li a:hover{
+    background-image: linear-gradient(to right,rgb(223, 223, 240) 0%,rgb(195, 187, 223) 100%);
+    border-radius: 8px;
+}
+ul li a.active-list-item {
+    background-image: linear-gradient(to right,rgb(202, 202, 233) 0%,rgb(173, 162, 211) 100%);
+    color: black;
+    font-weight: bold;
+}
+.content{
+    background-image: linear-gradient(to right,ghostwhite 0%,rgb(102, 231, 178)20%,rgb(121, 105, 179) 30%,rgb(177, 168, 209) 50%,rgb(121, 105, 179) 70%,rgb(102, 231, 178) 80%,ghostwhite 100%);
+}
+

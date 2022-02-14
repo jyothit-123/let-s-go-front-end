@@ -1,0 +1,57 @@
+<div class="container-fluid" style="padding: 30px;">
+    <div class="row no-gutter loginArea">
+        <!-- The image half -->
+        <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
+
+        <!-- The content half -->
+        <div class="col-md-6 bg-light">
+            <div class="row">
+                <div class="col card">
+                    <form [formGroup]="loginForm">
+                        <div>
+                            <span>
+                                <i><b>
+                                    <h1>Let's Go</h1>
+                                </b></i>
+                            </span>
+                            <div class="hr-theme-slash-2">
+                                <div class="hr-line"></div>
+                                <div class="hr-icon"><span class="fa fa-users"></span></div>
+                                <div class="hr-line"></div>
+                            </div>
+                        </div>
+                        <br><br>
+                        <div>
+                            <div>
+                                <span class="fa fa-user"> </span> &nbsp;
+                                <label>Enter your Email Id</label>
+                            </div>
+                            <div>
+                                <input type="text" formControlName="email">
+                            </div>
+                            <br>
+                            <div>
+                                <span class="fa fa-lock"></span> &nbsp;
+                                <label>Enter your Password</label>
+                            </div>
+                            <div>
+                                <input type="password" formControlName="password">
+                            </div>
+                            <br><br>
+                            <div [tooltip]='!loginForm.valid ? "Please Enter valid data":""' placement="bottom">
+                                <button class="btn submit" type="submit" [disabled]="!loginForm.valid"
+                                    (click)="login()">Login</button>
+                            </div>
+                            <br>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <div class="signup">
+                <span>Don't have an account ?! <span class="signupNavigation" routerLink="/signup"> Sign up </span> Now!!</span>
+            </div>
+        </div>
+    </div>
+</div>

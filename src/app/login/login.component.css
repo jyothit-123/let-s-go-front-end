@@ -1,0 +1,82 @@
+.bg-image {
+  min-height: 80vh;
+  background-image: url('../../assets/login.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+
+.card{
+  margin: 10px;
+  text-align: center;
+  display: table-row;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+@keyframes example {
+  0%   {background: linear-gradient(to right,#fff, #f32170,#bd1edd, #6fee7a,#fff);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;}
+  25%  {background: linear-gradient(to right,rgb(194, 245, 203), #40a57b,#db4263, #57ee64,rgb(196, 243, 184));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;}
+  50%  {background: linear-gradient(to right,rgb(188, 190, 218), #3f518b,#a4e7c2, #d9f00f,rgb(169, 182, 216));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;}
+  75%  {background: linear-gradient(to right,rgb(202, 175, 202), #e06196,#d6ec71, #8f2f82,rgb(202, 175, 195));
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;}
+  100% {background: linear-gradient(to right,#fff, #e98f53,#d33e10, #cecb40,#fff);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;}
+}
+h1 {
+    background: linear-gradient(to right,#fff, #f32170,#bd1edd, #6fee7a,#fff);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+    font-size: 60px;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    font-family: cursive;
+    text-shadow: 2px 3px  rgba(0,0,0,0.1);
+    animation-name: example;
+    animation-duration: 3s;
+    animation-iteration-count: infinite
+}
+.fa-users{
+  font-size:80px ;
+  background-image: linear-gradient(to right,rgb(25, 221, 100) 0%,ghostwhite 60%,rgb(173, 162, 211) 100%);
+  border-radius: 50%;
+}
+.hr-theme-slash-2 {
+  display: flex;
+}
+.hr-line {
+    width: 100%;
+    position: relative;
+    margin: 15px;
+    border-bottom: 1px solid #000;
+}
+.hr-icon {
+    position: relative;
+    top: 15px;
+}
+.submit{
+  width: 200px;
+  background-color: pink;
+  border: 1px solid rgb(245, 98, 122);
+}
+.submit:hover{
+  background-color: rgb(245, 98, 122);
+  border: 1px solid rgb(245, 41, 75);
+}
+.submit:disabled{
+  pointer-events: auto! important;
+     cursor: not-allowed! important;
+}
+.signup{
+  text-align: center;
+}
+.signupNavigation{
+  color: blue;
+  font-weight: bold;
+}

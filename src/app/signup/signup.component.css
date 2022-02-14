@@ -1,0 +1,63 @@
+.bg-image {
+  min-height: 80vh;
+  background-image: url('../../assets/signup.jpg');
+  background-size: cover;
+  background-position: center center;
+}
+.card{
+  margin: 10px;
+  text-align: center;
+}
+.title{
+  font-size: 40px;
+  font-weight: bold;
+  background: linear-gradient(to right,#fff, #f32170,#bd1edd, #6fee7a,#fff);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+input{
+  width: 400px;
+  height: 35px;
+  padding-left: 40px;
+}
+.input-icons i {
+  position: absolute;
+}
+.input-icons {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.icon {
+  padding: 10px;
+  min-width: 40px;
+}
+
+input[type="date"] {
+  position: relative;
+  padding: 10px;
+}
+
+
+.signup{
+  width: 400px;
+  background-color: pink;
+  border: rgb(156, 25, 47);
+}
+.signup:hover{
+  background-color: rgb(209, 52, 78);
+  border:rgb(44, 4, 10)
+}
+.signup:disabled{
+  background-color: rgb(248, 232, 235);
+  border: 1px solid rgb(243, 108, 131);
+  pointer-events: auto! important;
+  cursor: not-allowed! important;
+}
+.login{
+  text-align: center;
+}
+.loginNavigation{
+    color: blue;
+    font-weight: bold;
+}
