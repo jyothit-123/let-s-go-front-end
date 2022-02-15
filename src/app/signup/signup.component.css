@@ -16,21 +16,28 @@
   -webkit-background-clip: text;
 }
 
-input{
-  width: 400px;
+input,select{
+  width: 300px;
   height: 35px;
   padding-left: 40px;
 }
-.input-icons i {
+.input-icons .icon{
   position: absolute;
 }
 .input-icons {
   width: 100%;
   margin-bottom: 10px;
 }
+
 .icon {
   padding: 10px;
   min-width: 40px;
+}
+.input-icons .eye{
+  margin-left: -30px;
+}
+.eye{
+  padding-right: 10px;
 }
 
 input[type="date"] {

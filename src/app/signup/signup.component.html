@@ -9,48 +9,125 @@
                <div class="card">
                    <div class="title">
                        <span >Sign up Now !!</span>
-                   </div><br>
+                   </div><br><br>
+
                     <form [formGroup]="signupForm" class="input-icons">
-                        <div>
-                            <i class="fa fa-user icon"></i>
-                            <input type="text" formControlName="fName"   placeholder="First Name" >
-                            <div *ngIf="signupForm.controls.fName.errors &&  (signupForm.controls.fName?.dirty||signupForm.controls.fName?.touched)">
-                                <span *ngIf="signupForm.controls.fName.errors?.minlength">
-                                    Name must be at least 2 characters long.
-                                </span>
+
+                        <div class="row">
+                            <div class="col">
+                                <i class="fa fa-user icon"></i>
+                                <input type="text" formControlName="fName"   placeholder="First Name" >
+                                <div *ngIf="signupForm.controls.fName.errors &&  (signupForm.controls.fName?.dirty||signupForm.controls.fName?.touched)">
+                                    <span *ngIf="signupForm.controls.fName.errors" class="text-danger">
+                                        Name must be at least 2 characters long.
+                                    </span>
+                                </div>
                             </div>
-                            
+                            <div class="col">
+                                <i class="fa fa-user icon"></i>
+                                <input type="text" formControlName="lName" placeholder="Last Name">
+                                <div *ngIf="signupForm.controls.lName.errors &&  (signupForm.controls.lName?.dirty||signupForm.controls.lName?.touched)">
+                                    <span *ngIf="signupForm.controls.fName.errors" class="text-danger">
+                                        Last name is Required.
+                                    </span>
+                                </div>
+                            </div>
                         </div>
+
                         <br>
-                        <div>
-                            <i class="fa fa-user icon"></i>
-                            <input type="text" formControlName="lName" placeholder="Last Name">
-                        </div><br>
-                        <div>
-                            <input type="date" formControlName="dateOfBirth">
-                        </div><br>
-                        <div>
-                            <i class="fa fa-phone icon"></i>
-                            <input type="number" formControlName="contactNumber" placeholder="Contact Number">
-                        </div><br>
-                        <div>
-                            <i class="fa fa-envelope icon"></i>
-                            <input type="email" formControlName="email" placeholder="Email Id">
-                        </div><br>
-                        <div>
-                            <i class="fa fa-lock icon"></i>
-                            <input type="password" formControlName="password" placeholder="Password">
-                        </div><br>
-                        <div>
-                            <i class="fa fa-lock icon"></i>
-                            <input type="password" formControlName="cPassword" placeholder="Confirm Password">
-                        </div><br>
+
+                        <div class="row">
+                            <div class="col">
+                                <input type="date" formControlName="dateOfBirth">
+                                <div *ngIf="signupForm.controls.dateOfBirth.errors &&  (signupForm.controls.dateOfBirth?.dirty||signupForm.controls.dateOfBirth?.touched)">
+                                    <span *ngIf="signupForm.controls.dateOfBirth.errors?.invalidDate" class="text-danger">
+                                       Invalid Date of birth!!
+                                    </span>
+                                    <span *ngIf="signupForm.controls.dateOfBirth.errors?.required" class="text-danger">
+                                        Date of birth is Required field
+                                     </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <select formControlName="gender">
+                                    <option value="" disabled selected hidden>- Please Choose Gender -</option>
+                                    <option *ngFor="let g of genderList" [ngValue]="g.value">{{g.key}}</option>
+                                </select>
+                                <div *ngIf="signupForm.controls.gender.errors &&  (signupForm.controls.gender?.dirty||signupForm.controls.gender?.touched)">
+                                    <span *ngIf="signupForm.controls.gender.errors" class="text-danger">
+                                       Gender is Required field
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col">
+                                <i class="fa fa-phone icon"></i>
+                                <input type="text" formControlName="contactNumber" placeholder="Contact Number">
+                                <div class="text-danger" *ngIf="signupForm.controls.contactNumber.touched && signupForm.controls.contactNumber.invalid">
+                                    <span *ngIf="signupForm.controls.contactNumber.errors?.required" >Contact number is required!!</span>
+                                    <div *ngIf="signupForm.controls.contactNumber.errors?.pattern">Please, Enter 10 digit Mobile Number.</div> 
+                                </div>
+                            </div>
+                            <div class="col">
+                                <i class="fa fa-envelope icon"></i>
+                                <input type="email" formControlName="email" placeholder="Email Id">
+                                <div  class="text-danger" *ngIf="signupForm.controls.email.touched &&  signupForm.controls.email.invalid">
+                                    <span *ngIf="signupForm.controls.email.errors?.required">Email Id is required!!</span>
+                                    <span *ngIf="signupForm.controls.email.errors?.email">Invalid Email Id!!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col">
+                                <i class="fa fa-lock icon"></i>
+                                <input [type]="passwordTextType ? 'text' : 'password'" formControlName="password" placeholder="Password">
+                                    <i class="fa eye"
+                                    [ngClass]="{
+                                        'fa-eye-slash': !passwordTextType,
+                                        'fa-eye': passwordTextType
+                                    }"
+                                    (click)="togglepasswordTextType()"
+                                    ></i>
+                                <div *ngIf="signupForm.controls.password.errors &&  (signupForm.controls.password?.dirty||signupForm.controls.password?.touched)">
+                                    <span *ngIf="signupForm.controls.password.errors" class="text-danger">
+                                      Password is required!!
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <i class="fa fa-lock icon"></i>
+                                <input [type]="cPasswordTextType ? 'text' : 'password'" formControlName="cPassword" placeholder="Confirm Password">
+                                <i class="fa eye"
+                                    [ngClass]="{
+                                        'fa-eye-slash': !cPasswordTextType,
+                                        'fa-eye': cPasswordTextType
+                                    }"
+                                    (click)="togglecPasswordTextType()"
+                                    ></i>
+                                <div *ngIf="signupForm.controls.cPassword.errors &&  (signupForm.controls.cPassword?.dirty||signupForm.controls.cPassword?.touched)">
+                                    <span *ngIf="signupForm.controls.cPassword.errors" class="text-danger">
+                                       Confirm password should match password!!
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br><br>
+                        
                         <div>
                             <button type="submit" class="btn signup" (click)="signUp()" [disabled]="!signupForm.valid">Sign Up</button>
                         </div>
                     </form>
                </div>
 
+               <br>
                <div class="login">
                    Do you wish to <span class="loginNavigation" routerLink="/login"> Login </span> Now!!?
                </div>
