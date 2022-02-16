@@ -13,4 +13,7 @@ export class LetsgoService {
   signup(data:any):Observable<any>{
      return this.http.post(this.baseUrl+'signup', data)
   }
+  login(data:any):Observable<any>{
+    return this.http.post(this.baseUrl+'login',data)
+  }
 }

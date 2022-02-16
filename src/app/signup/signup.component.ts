@@ -66,14 +66,17 @@ export class SignupComponent implements OnInit {
       this.signupData.password=this.signupForm.get('password')?.value;
       this.signupData.confirmPassword=this.signupForm.get('cPassword')?.value;
       this.spinner=true
-      this.server.signup(this.signupData).subscribe(success=>{
-          console.log(success);
-          this.spinner=false
-          this.errormessage=''
-          this.route.navigate(["login"]);   
+      this.server.signup(this.signupData).subscribe(res=>{
+          if(res.status==="Success"){
+            this.spinner=false
+            this.errormessage=''
+            this.route.navigate(["login"]); 
+          }else{
+            this.spinner=false
+            this.errormessage="Sign up Failed...!! Please validate the data you have entered..!!"
+          }     
       }, error => {
         this.spinner=false
-        console.error('Error');
         this.errormessage="Sign up Failed...!! Please validate the data you have entered..!!"
       })
     }

@@ -22,7 +22,10 @@
                             </div>
                         </div>
                         <br><br>
-                        <div>
+                        <div *ngIf="spinner">
+                            <img src="../../assets/spinning-loading.gif">
+                        </div>
+                        <div *ngIf="!spinner">
                             <div>
                                 <span class="fa fa-user"> </span> &nbsp;
                                 <label>Enter your Email Id</label>
@@ -48,6 +51,9 @@
 
                     </form>
                 </div>
+            </div>
+            <div class="text-danger text-center">
+                <h6>{{errorMsg}}</h6>
             </div>
             <div class="signup">
                 <span>Don't have an account ?! <span class="signupNavigation" routerLink="/signup"> Sign up </span> Now!!</span>
