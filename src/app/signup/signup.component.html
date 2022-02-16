@@ -11,13 +11,17 @@
                        <span >Sign up Now !!</span>
                    </div><br><br>
 
-                    <form [formGroup]="signupForm" class="input-icons">
+                   <div *ngIf="spinner">
+                        <img src="../../assets/spinning-loading.gif">
+                   </div>
+                   
+                    <form [formGroup]="signupForm" class="input-icons" *ngIf="!spinner">
 
                         <div class="row">
                             <div class="col">
                                 <i class="fa fa-user icon"></i>
                                 <input type="text" formControlName="fName"   placeholder="First Name" >
-                                <div *ngIf="signupForm.controls.fName.errors &&  (signupForm.controls.fName?.dirty||signupForm.controls.fName?.touched)">
+                                <div *ngIf="signupForm.controls.fName.invalid && signupForm.controls.fName.touched">
                                     <span *ngIf="signupForm.controls.fName.errors" class="text-danger">
                                         Name must be at least 2 characters long.
                                     </span>
@@ -26,7 +30,7 @@
                             <div class="col">
                                 <i class="fa fa-user icon"></i>
                                 <input type="text" formControlName="lName" placeholder="Last Name">
-                                <div *ngIf="signupForm.controls.lName.errors &&  (signupForm.controls.lName?.dirty||signupForm.controls.lName?.touched)">
+                                <div *ngIf="signupForm.controls.lName.invalid && signupForm.controls.lName.touched">
                                     <span *ngIf="signupForm.controls.fName.errors" class="text-danger">
                                         Last name is Required.
                                     </span>
@@ -39,7 +43,7 @@
                         <div class="row">
                             <div class="col">
                                 <input type="date" formControlName="dateOfBirth">
-                                <div *ngIf="signupForm.controls.dateOfBirth.errors &&  (signupForm.controls.dateOfBirth?.dirty||signupForm.controls.dateOfBirth?.touched)">
+                                <div *ngIf="signupForm.controls.dateOfBirth.invalid && signupForm.controls.dateOfBirth.touched">
                                     <span *ngIf="signupForm.controls.dateOfBirth.errors?.invalidDate" class="text-danger">
                                        Invalid Date of birth!!
                                     </span>
@@ -53,7 +57,7 @@
                                     <option value="" disabled selected hidden>- Please Choose Gender -</option>
                                     <option *ngFor="let g of genderList" [ngValue]="g.value">{{g.key}}</option>
                                 </select>
-                                <div *ngIf="signupForm.controls.gender.errors &&  (signupForm.controls.gender?.dirty||signupForm.controls.gender?.touched)">
+                                <div *ngIf="signupForm.controls.gender.invalid && signupForm.controls.gender.touched">
                                     <span *ngIf="signupForm.controls.gender.errors" class="text-danger">
                                        Gender is Required field
                                     </span>
@@ -128,6 +132,9 @@
                </div>
 
                <br>
+               <div class="text-danger text-center">
+                    <h6>{{errormessage}}</h6>
+               </div>
                <div class="login">
                    Do you wish to <span class="loginNavigation" routerLink="/login"> Login </span> Now!!?
                </div>
